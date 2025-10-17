@@ -5,6 +5,11 @@ services:
     image: nginx:stable-alpine
     container_name: facada_nginx
     ports:
-      - "8001:80"
+      - "80:80"
     volumes:
       - ./html:/usr/share/nginx/html:ro
+    networks:
+      - tracking_network
+networks:
+  tracking_network:
+    external: true
